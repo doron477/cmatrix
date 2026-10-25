@@ -231,7 +231,7 @@ void var_init() {
         spaces[j] = (int) rand() % LINES + 1;
 
         /* And length of the stream */
-        length[j] = (int) rand() % (LINES - 3) + 3;
+        length[j] = (int) rand() % (LINES > 3 ? LINES - 3 : 1) + 3;
 
         /* Sentinel value for creation of new objects */
         matrix[1][j].val = ' ';
@@ -698,7 +698,7 @@ if (console) {
                         spaces[j]--;
                     } else if (matrix[0][j].val == -1
                         && matrix[1][j].val == ' ') {
-                        length[j] = (int) rand() % (LINES - 3) + 3;
+                        length[j] = (int) rand() % (LINES > 3 ? LINES - 3 : 1) + 3;
                         matrix[0][j].val = (int) rand() % randnum + randmin;
 
                         spaces[j] = (int) rand() % LINES + 1;
